@@ -5,7 +5,7 @@ const knex = require('knex');
 const register = require('./controllers/register')
 const signin = require('./controllers/signin')
 const image = require('./controllers/image.js')
-const imageid = require('./controllers/imageid.js');
+const imageid = require('./controllers/imageId.js');
 const { port } = require("pg/lib/defaults");
 
 const db = knex({
