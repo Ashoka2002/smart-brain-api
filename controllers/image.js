@@ -46,18 +46,17 @@ const returnClarifaiRequestOptions = (imageUrl) => {
 const handleApiCall = (req, res) => {
 
     fetch("https://api.clarifai.com/v2/models/" + "face-detection" + "/outputs", returnClarifaiRequestOptions(req.body.input))
-    .then(response => response.json())
-    .then(data=>{
-        res.json(data);
-    })
-    .catch(err=>res.status(400).json("error in handleapi"));
+        .then(response => response.json())
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => res.status(400).json("unable to work with API"));
 
 }
 
 const imageHandler = (req, res, db) => {
     const { id } = req.body;
-    db.select('*').from('users')
-        .where("id", "=", id)
+    db('users').where("id", "=", id)
         .increment("entries", 1)
         .returning('entries')
         .then(entries => {
@@ -68,5 +67,5 @@ const imageHandler = (req, res, db) => {
 
 module.exports = {
     imageHandler: imageHandler,
-    handleApiCall:handleApiCall
+    handleApiCall: handleApiCall
 }
