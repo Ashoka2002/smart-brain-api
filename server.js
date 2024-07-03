@@ -9,18 +9,18 @@ const image = require("./controllers/image.js");
 const imageid = require("./controllers/imageId.js");
 const { port } = require("pg/lib/defaults");
 
-// const db = knex({
-//   client: "pg",
-//   connection: {
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: { rejectUnauthorized: false },
-//     host: process.env.DATABASE_HOST,
-//     user: process.env.DATABASE_USER,
-//     port: 5432,
-//     password: process.env.DATABASE_PW,
-//     database: process.env.DATABASE_DB,
-//   },
-// });
+const db = knex({
+  client: "pg",
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    port: 5432,
+    password: process.env.DATABASE_PW,
+    database: process.env.DATABASE_DB,
+  },
+});
 
 const app = express();
 
