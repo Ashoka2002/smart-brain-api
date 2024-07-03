@@ -34,23 +34,23 @@ app.get("/", (req, res) => {
   res.send("Its working");
 });
 
-// app.post("/signin", signin.handlerSignin(db, bcrypt));
+app.post("/signin", signin.handlerSignin(db, bcrypt));
 
-// app.post("/register", (req, res) => {
-//   register.handlerRegister(req, res, db, bcrypt);
-// });
+app.post("/register", (req, res) => {
+  register.handlerRegister(req, res, db, bcrypt);
+});
 
-// app.get("/profile/:id", (req, res) => {
-//   imageid.imageIdHandler(req, res, db);
-// });
+app.get("/profile/:id", (req, res) => {
+  imageid.imageIdHandler(req, res, db);
+});
 
-// app.put("/image", (req, res) => {
-//   image.imageHandler(req, res, db);
-// });
+app.put("/image", (req, res) => {
+  image.imageHandler(req, res, db);
+});
 
-// app.post("/imageurl", (req, res) => {
-//   image.handleApiCall(req, res);
-// });
+app.post("/imageurl", (req, res) => {
+  image.handleApiCall(req, res);
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`app is running on port http://localhost:${process.env.PORT}/`);
